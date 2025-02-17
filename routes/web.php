@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
@@ -55,5 +56,14 @@ Route::post('/submit',[SurveyFormController::class,'saveInfo'])->name('survey.sa
 //     $qrcode = Qrcode::genarate($string);
 //     return view('qr');
 // });
+
 Route::get('/surveyform',[AnswerController::class,'pull']);
 Route::post('/surveytest',[AnswerController::class,'getInfoTorate']);
+
+// Route::get('/surveyform',[AnswerController::class,'pull2']);
+// Route::post('/surveycoco',[AnswerController::class,'getInfoTorate2']);
+
+
+//excel export
+Route::get('/download',[ExportController::class,'download']);
+Route::get('/export',[ExportController::class,'exportReport']);
